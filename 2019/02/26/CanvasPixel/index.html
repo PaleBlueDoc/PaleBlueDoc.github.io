@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next gemini use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,7 +72,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '7.0.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -96,24 +96,24 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="前几周做了一个医疗展示CT图的项目，需要对DICOM文件进行解析展示并且在页面中对图像进行明暗和对比度的调节功能。费了许多精力将此功能做了出来（虽然使用的并不是DICOM文件中的窗宽/窗位，但也算是一种知识的学习），所以在此记录加深记忆及方便以后查阅。 canvas API及教程由于要对图片进行操作（明暗及对比度的调节、反色）所以页面中使用img元素是不合适的，而HTML5中提供的canvas元素">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://blog.bluedot.pub/2019/02/26/hello-world/index.html">
+<meta property="og:title" content="Canvas像素调节">
+<meta property="og:url" content="http://blog.bluedot.pub/2019/02/26/CanvasPixel/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前几周做了一个医疗展示CT图的项目，需要对DICOM文件进行解析展示并且在页面中对图像进行明暗和对比度的调节功能。费了许多精力将此功能做了出来（虽然使用的并不是DICOM文件中的窗宽/窗位，但也算是一种知识的学习），所以在此记录加深记忆及方便以后查阅。 canvas API及教程由于要对图片进行操作（明暗及对比度的调节、反色）所以页面中使用img元素是不合适的，而HTML5中提供的canvas元素">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-26T01:08:31.422Z">
+<meta property="og:updated_time" content="2019-02-26T03:34:33.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Canvas像素调节">
+<meta name="twitter:description" content="前几周做了一个医疗展示CT图的项目，需要对DICOM文件进行解析展示并且在页面中对图像进行明暗和对比度的调节功能。费了许多精力将此功能做了出来（虽然使用的并不是DICOM文件中的窗宽/窗位，但也算是一种知识的学习），所以在此记录加深记忆及方便以后查阅。 canvas API及教程由于要对图片进行操作（明暗及对比度的调节、反色）所以页面中使用img元素是不合适的，而HTML5中提供的canvas元素">
 
 
 
 
 
 
-  <link rel="canonical" href="http://blog.bluedot.pub/2019/02/26/hello-world/">
+  <link rel="canonical" href="http://blog.bluedot.pub/2019/02/26/CanvasPixel/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>Hello World | Hexo</title>
+  <title>Canvas像素调节 | Hexo</title>
   
 
 
@@ -219,7 +219,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -236,7 +236,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
 
   </li>
 
@@ -244,9 +244,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -269,6 +266,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -288,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.bluedot.pub/2019/02/26/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://blog.bluedot.pub/2019/02/26/CanvasPixel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Blue Dot">
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">Canvas像素调节
 
               
             
@@ -324,16 +324,20 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-02-26 09:08:31" itemprop="dateCreated datePublished" datetime="2019-02-26T09:08:31+08:00">2019-02-26</time>
+              <time title="Post created: 2019-02-26 00:00:00 / Updated at: 11:34:33" itemprop="dateCreated datePublished" datetime="2019-02-26T00:00:00+08:00">2019-02-26</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -366,15 +370,21 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>前几周做了一个医疗展示CT图的项目，需要对DICOM文件进行解析展示并且在页面中对图像进行明暗和对比度的调节功能。费了许多精力将此功能做了出来（虽然使用的并不是DICOM文件中的窗宽/窗位，但也算是一种知识的学习），所以在此记录加深记忆及方便以后查阅。</p>
+<h2 id="canvas-API及教程"><a href="#canvas-API及教程" class="headerlink" title="canvas API及教程"></a>canvas API及教程</h2><p>由于要对图片进行操作（明暗及对比度的调节、反色）所以页面中使用img元素是不合适的，而HTML5中提供的canvas元素可以指定一块画布并在此之上进行绘图及处理，所以展示图片时使用canvas。canvas的使用教程在MDN中介绍的非常详细在此附上连接 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API" target="_blank" rel="noopener">Canvas API</a> </p>
+<h2 id="图片明暗及对比度的调节"><a href="#图片明暗及对比度的调节" class="headerlink" title="图片明暗及对比度的调节"></a>图片明暗及对比度的调节</h2><p>通过此教程了除了了解到canvas中如何画图及如何使用图片外了解的另外的知识就是，<strong>对图片明暗度的调节就是对像素颜色值的增减，255-当前像素的颜色值就能得到反色</strong>。但问中并没有对对比度调节的例子。所以将网上搜所到对比度调节的算法记录在此。</p>
+<blockquote>
+<p>网上最常用的调整对比度的算法是根据图像的灰度进行调整</p>
+<p>下面是算法：</p>
+<p>1、计算平均亮度</p>
+<p>2、每点与平均亮度比较，得到差值。</p>
+<p>3、新的亮度 = 平均亮度 + 系数 *  差值</p>
+<p>4、根据新的亮度，计算出新的rgb(保持色调不变)</p>
+<p>原文地址：<a href="http://blog.sina.com.cn/s/blog_715b47c201015ier.html" target="_blank" rel="noopener">数字图像处理 调整对比度的几种方法</a></p>
+</blockquote>
+<h2 id="通过鼠标滑动触发事件"><a href="#通过鼠标滑动触发事件" class="headerlink" title="通过鼠标滑动触发事件"></a>通过鼠标滑动触发事件</h2><p>在很多DICOM解析工具中，都会提供按住鼠标左右或上下滑动来调节图片明暗及对比度（即窗宽及窗位）的操作。所以在此我们也需要在用户操作时增加上此功能。这个问题相对好解决，只要在canvas元素中触发鼠标移动事件时判断鼠标是点击状态，再根据鼠标的横坐标及纵坐标的位移对像素进行对应操作即可，<strong>调节的时候可以适当缩小以下位移与像素值的调节，以防止移动鼠标的时候图片变化过大</strong>。</p>
+<h2 id="canvas的初始大小"><a href="#canvas的初始大小" class="headerlink" title="canvas的初始大小"></a>canvas的初始大小</h2><p>canvas 标签只有两个属性—— width和height。这些都是可选的，并且同样利用 DOM properties 来设置。当没有设置宽度和高度的时候，canvas会初始化宽度为300像素和高度为150像素。而在用canvas加载图片时，知识在当前画布的内部绘制图片，所以canvas在定义之后不会自动的根据图片的大小来改变自身的宽高。所以如果想让canvas的宽高与图片相同，需要先知道图片的宽高，对应设置好canvas的宽高之后在进行图片的绘制。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在此过程中，虽然花费了不少的时间与经历，但大部分都是用在了canvas的学习及鼠标事件的处理上，熟悉了这写大家基本就能很轻松的写出这个东西。而编写的过程中也遇到了一些思考不周导致的问题，像反色后在进行调节又回到了反色前的状态；鼠标按住划出canvas范围后按住不放在滑回会对图片的调节造成影响及最初时未保存基础的图像数据，导致在图像调节后无法恢复原来图像等等问题，相信在经过思考之后都能搞得定。<br>在此附上我demo的连接<a href="https://palebluedoc.github.io/blog/demo/dicom/dicom.html" target="_blank" rel="noopener">图像明暗及对比度调节DEMO</a></p>
 
       
     </div>
@@ -404,6 +414,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/26/MongodbErrorLog/" rel="next" title="Mongodb启动异常处理记录">
+                <i class="fa fa-chevron-left"></i> Mongodb启动异常处理记录
+              </a>
             
           </div>
 
@@ -460,10 +474,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -483,8 +497,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -523,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#canvas-API及教程"><span class="nav-number">1.</span> <span class="nav-text">canvas API及教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片明暗及对比度的调节"><span class="nav-number">2.</span> <span class="nav-text">图片明暗及对比度的调节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过鼠标滑动触发事件"><span class="nav-number">3.</span> <span class="nav-text">通过鼠标滑动触发事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#canvas的初始大小"><span class="nav-number">4.</span> <span class="nav-text">canvas的初始大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -555,7 +569,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -563,7 +577,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
 
 
 
@@ -651,7 +665,10 @@
   
 
 
-  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
 
 
 
