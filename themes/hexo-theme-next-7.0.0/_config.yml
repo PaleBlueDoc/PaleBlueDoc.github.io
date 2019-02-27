@@ -510,7 +510,7 @@ pangu: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: 229a423388e76c0ff9f4bb8a09c80a31
 
 # Growingio Analytics ID
 # Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
@@ -618,7 +618,7 @@ needmoreshare2:
 #google_site_verification:
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-135297670-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster
@@ -630,10 +630,10 @@ needmoreshare2:
 
 # Baidu Webmaster tools verification setting
 # See: https://ziyuan.baidu.com/site
-#baidu_site_verification:
+# baidu_site_verification: 229a423388e76c0ff9f4bb8a09c80a31
 
 # CNZZ count
-#cnzz_siteid:
+cnzz_siteid: 1276335526
 
 # Application Insights
 # See: https://azure.microsoft.com/en-us/services/application-insights

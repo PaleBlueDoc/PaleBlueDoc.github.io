@@ -16,6 +16,8 @@ windows系统的nginx安装就是下载后直接解压运行EXE文件即可，�
 ### Linux
 Linux中Nginx的安装步骤可以参照吴秦（Tyler）的[Nginx安装与使用](http://www.cnblogs.com/skynet/p/4146083.html)，使用GUN的安装规范进行安装。安装后会将Nginx安装到/usr/local/nginx下，运行时使用命令“nginx -c 配置文件目录”启动Nginx，关闭时使用“nginx -s stop”命令
 
+<!--more-->
+
 ## Nginx配置文件
 我使用的是本地的虚拟机安装的Nginx,虚拟机分配的局域网IP为192.168.6.56，在虚拟机的tomcat中运行了一个testproject项目。Nginx的配置文件也是非常简洁的，以下是我自己最初设置的Nginx配置，我的理解是只要监听好域名及端口，在默认访问域名时只要直接跳转到tomcat的项目地址就可以了。
 

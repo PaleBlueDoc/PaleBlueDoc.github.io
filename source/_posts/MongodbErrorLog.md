@@ -18,6 +18,8 @@ tags:
 
 > 初步考虑到是由于通过非本地地址访问mongodb的27017端口，可能是被linxu防火墙拦截了，使用的是centos7d但手动开启了iptables，具体设置可以根据[iptables的详细介绍及配置方法](http://my.oschina.net/shipley/blog/299025) 但开启之后扔发现无法连接。
 
+<!--more-->
+
 ### mongodb端口监听
 
 > 找不到原因考虑可能是mongodb自身的配置问题，找到mongodb配置文件/ect/mongod.conf 发现里面 bindIP 的默认配置为127.0.0.1 ，查询发现bindIp为绑定地址，默认只能本地访问，其他配置可查询[mongodb配置文件详解](http://my.oschina.net/pwd/blog/399374)修改后重启mongdb服务发现mongodb起不来了，状态一直是failed。
