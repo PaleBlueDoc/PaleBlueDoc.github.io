@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="蓝点博客">
 <meta property="og:description" content="搭建个人博客的好处 培养个人性情  在当前这个生活节奏越来越快的时代中，每个人都希望速成。 像读书、练字、写博客这种需要长期坚持的事对个人的性情培养就显得弥足珍贵。  锻炼自己的文采  每个人都有自己的想法，想要说清楚已经不易，想要写出来让人看明白更难，想要让人喜欢看，愿意看…嗯，这是门艺术。  帮你记录生活和知识  我对《活着》中的一段话有着很深的印象  可是我再也没遇到一个像福贵这样令我难忘的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-27T09:30:53.674Z">
+<meta property="og:updated_time" content="2019-02-27T09:54:59.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO博客搭建全记录">
 <meta name="twitter:description" content="搭建个人博客的好处 培养个人性情  在当前这个生活节奏越来越快的时代中，每个人都希望速成。 像读书、练字、写博客这种需要长期坚持的事对个人的性情培养就显得弥足珍贵。  锻炼自己的文采  每个人都有自己的想法，想要说清楚已经不易，想要写出来让人看明白更难，想要让人喜欢看，愿意看…嗯，这是门艺术。  帮你记录生活和知识  我对《活着》中的一段话有着很深的印象  可是我再也没遇到一个像福贵这样令我难忘的">
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2019-02-27 15:47:25 / 修改时间：17:30:53" itemprop="dateCreated datePublished" datetime="2019-02-27T15:47:25+08:00">2019-02-27</time>
+              <time title="创建时间：2019-02-27 15:47:25 / 修改时间：17:54:59" itemprop="dateCreated datePublished" datetime="2019-02-27T15:47:25+08:00">2019-02-27</time>
             
 
             
@@ -471,17 +471,18 @@
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
 <li>Nodejs版本我下载的是v10.15.1，自带的NPM版本是v6.4.1在执行npm install hexo 时会爆出一些警告但并不影响使用</li>
 </ul>
-<p>(<code>`</code>)</p>
 <pre><code>$ npm install -g hexo
-npm WARN deprecated titlecase@1.1.2: no longer maintained
-D:\nodejs\node_global\hexo -&gt; D:\nodejs\node_global\node_modules\hexo\bin\hexo
+
+npm WARN deprecated titlecase@1.1.2: no longer maintainedD:\nodejs\node_global\hexo -&gt; D:\nodejs\node_global\node_modules\hexo\bin\hexo
+
 npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.7 (node_modules\hexo\node_modules\fsevents):
+
 npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.7: wanted {&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;} (current: {&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;})
 
 + hexo@3.8.0
+
 added 2 packages from 2 contributors, removed 205 packages, updated 11 packages and moved 4 packages in 41.752s
-</code></pre><p>(<code>`</code>)</p>
-<ul>
+</code></pre><ul>
 <li><p>npm 默认的全局地址是在c盘，所以修改npm的默认全局地址及修改资源仓库 <a href="https://blog.csdn.net/chenhaifeng2016/article/details/64128095" target="_blank" rel="noopener">npm 更改默认全局路径以及国内镜像</a></p>
 </li>
 <li><p>由于hexo发布到github pages上的代码只是public编译后的代码，所以如果想要在多台电脑上编辑的话还需要将hexo的代码也放到git上进行管理。这里参考文章 <a href="https://www.jianshu.com/p/4bcf2848b3fc" target="_blank" rel="noopener">多台电脑使用Hexo</a> 进行处理</p>
