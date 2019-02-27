@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="蓝点博客">
 <meta property="og:description" content="Mongodb启动异常处理记录问题描述 在使用yum安装mongodb3之后一直没有手动重启过，也没修改过配置文件，在使用java连接时，出现了socket连接失败。  解决步骤Linux防火墙端口未开放问题 初步考虑到是由于通过非本地地址访问mongodb的27017端口，可能是被linxu防火墙拦截了，使用的是centos7d但手动开启了iptables，具体设置可以根据iptables的详细">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-26T10:21:54.603Z">
+<meta property="og:updated_time" content="2019-02-27T07:48:41.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongodb启动异常处理记录">
 <meta name="twitter:description" content="Mongodb启动异常处理记录问题描述 在使用yum安装mongodb3之后一直没有手动重启过，也没修改过配置文件，在使用java连接时，出现了socket连接失败。  解决步骤Linux防火墙端口未开放问题 初步考虑到是由于通过非本地地址访问mongodb的27017端口，可能是被linxu防火墙拦截了，使用的是centos7d但手动开启了iptables，具体设置可以根据iptables的详细">
@@ -366,12 +366,24 @@
                 
               
 
-              <time title="创建时间：2019-02-26 00:00:00 / 修改时间：18:21:54" itemprop="dateCreated datePublished" datetime="2019-02-26T00:00:00+08:00">2019-02-26</time>
+              <time title="创建时间：2019-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-26T00:00:00+08:00">2019-02-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-27 15:48:41" itemprop="dateModified" datetime="2019-02-27T15:48:41+08:00">2019-02-27</time>
               
             
           </span>
@@ -429,6 +441,7 @@
 <h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><h3 id="Linux防火墙端口未开放问题"><a href="#Linux防火墙端口未开放问题" class="headerlink" title="Linux防火墙端口未开放问题"></a>Linux防火墙端口未开放问题</h3><blockquote>
 <p>初步考虑到是由于通过非本地地址访问mongodb的27017端口，可能是被linxu防火墙拦截了，使用的是centos7d但手动开启了iptables，具体设置可以根据<a href="http://my.oschina.net/shipley/blog/299025" target="_blank" rel="noopener">iptables的详细介绍及配置方法</a> 但开启之后扔发现无法连接。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="mongodb端口监听"><a href="#mongodb端口监听" class="headerlink" title="mongodb端口监听"></a>mongodb端口监听</h3><blockquote>
 <p>找不到原因考虑可能是mongodb自身的配置问题，找到mongodb配置文件/ect/mongod.conf 发现里面 bindIP 的默认配置为127.0.0.1 ，查询发现bindIp为绑定地址，默认只能本地访问，其他配置可查询<a href="http://my.oschina.net/pwd/blog/399374" target="_blank" rel="noopener">mongodb配置文件详解</a>修改后重启mongdb服务发现mongodb起不来了，状态一直是failed。</p>
 </blockquote>
@@ -488,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/CanvasPixel/" rel="next" title="Canvas像素调节">
-                <i class="fa fa-chevron-left"></i> Canvas像素调节
+              <a href="/2019/02/26/Nginx反向代理初步学习/" rel="next" title="Nginx反向代理初步学习">
+                <i class="fa fa-chevron-left"></i> Nginx反向代理初步学习
               </a>
             
           </div>
@@ -497,6 +510,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/26/CanvasPixel/" rel="prev" title="Canvas像素调节">
+                Canvas像素调节 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -566,7 +583,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -578,8 +595,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -604,7 +619,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
